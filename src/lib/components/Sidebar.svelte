@@ -1,12 +1,14 @@
 <script lang="ts">
-	const menu = [
-		{ label: 'Dashboard', href: '/dashboard' },
-		{ label: 'Anggota', href: '/anggota' }
-	];
+	import { menu } from '$lib/nav';
 </script>
 
 <nav style="padding: 1rem; background: #eee;">
 	{#each menu as item}
-		<a href={item.href}>{item.label}</a>
-	{/each}
+	<div>
+		<strong>{item.label}</strong>
+		{#each item.children as child}
+			<a href={child.href}>{child.label}</a>
+		{/each}
+	</div>
+{/each}
 </nav>
