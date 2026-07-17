@@ -1,5 +1,8 @@
 export const load = async () => {
     return {
-        daftarA
-    }
-}
+        daftarAnggota: [
+            { nama: 'sansan', wilayah: 'Jakarta' },
+            { nama: 'Jayadi', wilayah: 'Bandung' }
+        ]
+    };
+};
