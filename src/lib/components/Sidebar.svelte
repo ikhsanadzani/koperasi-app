@@ -5,17 +5,20 @@
 </script>
 
 <nav style="padding: 1rem; background: #eee;">
-	{#each menu as item }
-		<div>
-			<button onclick={() => openGroups[item.label] = !openGroups[item.label]}>
-				{item.label}
-			</button>
-
-			{#if openGroups[item.label]}
-				{#each item.children as child}
-					<a href={child.href}>{child.label}</a>
+	{#each menu as item}
+		{#if item.children}
+			<div>
+				<button onclick={() => openGroups[item.label] = !openGroups[item.label]}>
+					{item.label}
+				</button>
+					{#if openGroups[item.label]}
+						{#each item.children as child}
+						<a href={child.href}>{child.label}</a>
 				{/each}
 			{/if}
-		</div>
+			</div>
+		{:else}
+			<a href={item.href}>{item.label}</a>
+		{/if}
 	{/each}
 </nav>

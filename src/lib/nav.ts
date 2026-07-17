@@ -1,4 +1,5 @@
 export const menu = [
+	{ label:'Dashboard', href: '/dasboard'},
 	{
 		label: 'Anggota',
 		children: [
@@ -12,6 +13,13 @@ export const menu = [
 		children: [
 			{ label: 'Daftar Rekening Simpanan', href: '/simpanan/rekening' },
 			{ label: 'Pemindahbukuan', href: '/simpanan/pemindahbukuan' }
+		]
+	},
+	{
+		label: 'Pinjaman',
+		children: [
+			{ label: 'Daftar Pinjaman', href: '/pinjaman' },
+			{ label: 'Transaksi Pencairan', href: '/pinjaman/pencairan' },
 		]
 	}
 ];
