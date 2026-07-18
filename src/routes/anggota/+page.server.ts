@@ -1,8 +1,7 @@
+import { db } from '$lib/server/db';
+import { anggota } from '$lib/server/db/schema';
+
 export const load = async () => {
-    return {
-        daftarAnggota: [
-            { nama: 'sansan', wilayah: 'Jakarta' },
-            { nama: 'Jayadi', wilayah: 'Bandung' }
-        ]
-    };
+	const daftarAnggota = await db.select().from(anggota);
+	return { daftarAnggota };
 };
