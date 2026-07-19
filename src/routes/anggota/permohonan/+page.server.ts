@@ -8,8 +8,10 @@ export const actions = {
         const wilayah = formData.get('wilayah');
 
         await db.insert(anggota).values({
-            nama: nama as string.
-            
+            nama: nama as string,
+            wilayah: wilayah as string 
         });
+
+        return { success: true };
     }
 }; 
