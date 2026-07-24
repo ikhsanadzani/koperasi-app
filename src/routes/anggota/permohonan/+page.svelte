@@ -8,14 +8,20 @@
 
 <form method="POST">
   <label>
-     Nama
-        <input name="nama" type="text" required />
+    nama
+    <input type="text" name="nama" />
   </label>
-  
-  <label>
-    Wilayah
-        <input type="text" name="wilayah" required />
-  </label>
+  {#if form?.errors?.nama}
+    <p style="color: red;">{form.errors.nama[0]}</p>
+  {/if}
 
-  <button type="submit">Daftar</button>
+  <label>
+    wilayah
+    <input type="text" name="wilayah" />
+  </label>
+  {#if form?.errors?.wilayah}
+    <p style="color: red;">{form.errors.wilayah[0]}</p>
+  {/if}
+
+  <button type="submit" >Daftar</button>
 </form>
