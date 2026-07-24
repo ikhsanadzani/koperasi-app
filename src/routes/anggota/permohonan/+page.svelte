@@ -1,27 +1,46 @@
 <script lang="ts">
-    let { form } = $props();
+	let { form } = $props();
 </script>
 
-{#if form?.success}
-	<p style="color: green;">Berhasil mendaftar!</p>
-{/if}
+<div class="max-w-md p-6">
+	<h1 class="mb-4 text-xl font-semibold">Permohonan Anggota</h1>
 
-<form method="POST">
-  <label>
-    nama
-    <input type="text" name="nama" />
-  </label>
-  {#if form?.errors?.nama}
-    <p style="color: red;">{form.errors.nama[0]}</p>
-  {/if}
+	{#if form?.success}
+		<p class="mb-4 rounded bg-green-100 px-3 py-2 text-green-700">
+			Berhasil mendaftar!
+		</p>
+	{/if}
 
-  <label>
-    wilayah
-    <input type="text" name="wilayah" />
-  </label>
-  {#if form?.errors?.wilayah}
-    <p style="color: red;">{form.errors.wilayah[0]}</p>
-  {/if}
+	<form method="POST" class="flex flex-col gap-4">
+		<div>
+			<label class="mb-1 block text-sm font-medium">Nama</label>
+			<input
+				type="text"
+				name="nama"
+				class="w-full rounded border px-3 py-2 focus:border-emerald-500 focus:outline-none"
+			/>
+			{#if form?.errors?.nama}
+				<p class="mt-1 text-sm text-red-600">{form.errors.nama[0]}</p>
+			{/if}
+		</div>
 
-  <button type="submit" >Daftar</button>
-</form>
+		<div>
+			<label class="mb-1 block text-sm font-medium">Wilayah</label>
+			<input
+				type="text"
+				name="wilayah"
+				class="w-full rounded border px-3 py-2 focus:border-emerald-500 focus:outline-none"
+			/>
+			{#if form?.errors?.wilayah}
+				<p class="mt-1 text-sm text-red-600">{form.errors.wilayah[0]}</p>
+			{/if}
+		</div>
+
+		<button
+			type="submit"
+			class="rounded bg-emerald-700 px-4 py-2 font-medium text-white hover:bg-emerald-800"
+		>
+			Daftar
+		</button>
+	</form>
+</div>
